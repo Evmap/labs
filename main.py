@@ -4,7 +4,7 @@ from Student import Student
 from IStudents import IStudents, Students
 
 component.provideUtility(Students())
-maths = component.getUtility(IStudents)
+stud = component.getUtility(IStudents)
 
 class TestStudent(unittest.TestCase):
 
@@ -17,12 +17,12 @@ class TestStudent(unittest.TestCase):
         self.assertEqual((self.St2.name, self.St2.faculty, self.St2.course), ("Vasya", "Physics", 3))
 
     def test_Add(self):
-        self.assertTrue(maths.add("Dima", "IMEI", 1))
-        self.assertEqual(maths.slist[0].name, "Dima")
+        self.assertTrue(stud.add("Dima", "IMEI", 1))
+        self.assertEqual(stud.slist[0].name, "Dima")
 
     def test_Delete(self):
-        self.assertTrue(maths.delete("Dima"))
-        self.assertEqual(maths.slist, [])        
+        self.assertTrue(stud.delete("Dima"))
+        self.assertEqual(stud.slist, [])        
             
 if __name__ == '__main__':
     unittest.main()
